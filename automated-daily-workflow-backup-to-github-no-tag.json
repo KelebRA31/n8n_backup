@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-02-20T14:33:23.704Z",
+  "updatedAt": "2026-02-20T16:16:04.687Z",
   "createdAt": "2026-02-20T14:10:41.608Z",
   "id": "7bIqm3wVpeUY9CFx",
   "name": "Automated daily workflow backup to GitHub",
@@ -116,7 +116,7 @@
           "cachedResultName": "n8n_backup",
           "cachedResultUrl": "https://github.com/KelebRA31/n8n_backup"
         },
-        "filePath": "={{ $('Retrieve workflows').item.json.name.replace(/\\s+/g, '-').toLowerCase() }}-{{ $('Retrieve workflows').item.json.tags[0].name }}.json",
+        "filePath": "={{ $('Retrieve workflows').item.json.name.replace(/\\s+/g, '-').toLowerCase() }}-{{ $('Retrieve workflows').item.json.tags?.[0]?.name || 'no-tag' }}.json",
         "fileContent": "={{ $('To base64').item.json.data }}",
         "commitMessage": "=backup-{{ $('Commit date & file name').item.json.commitDate }}"
       },
@@ -152,7 +152,7 @@
           "cachedResultName": "n8n_backup",
           "cachedResultUrl": "https://github.com/KelebRA31/n8n_backup"
         },
-        "filePath": "={{ $('Retrieve workflows').item.json.name.replace(/\\s+/g, '-').toLowerCase() }}-{{ $('Retrieve workflows').item.json.tags[0].name }}.json",
+        "filePath": "={{ $('Retrieve workflows').item.json.name.replace(/\\s+/g, '-').toLowerCase() }}-{{ $('Retrieve workflows').item.json.tags?.[0]?.name || 'no-tag' }}.json",
         "fileContent": "={{ $('To base64').item.json.data }}",
         "commitMessage": "=backup-{{ $node['Commit date & file name'].json.commitDate }}"
       },
@@ -179,7 +179,7 @@
             {
               "value1": "={{ $('Aggregate').item.json.name }}",
               "operation": "contains",
-              "value2": "={{ $('Retrieve workflows').item.json.name.replace(/\\s+/g, '-').toLowerCase() }}-{{ $('Retrieve workflows').item.json.tags[0].name }}.json"
+              "value2": "={{ $('Retrieve workflows').item.json.name.replace(/\\s+/g, '-').toLowerCase() }}-{{ $('Retrieve workflows').item.json.tags?.[0]?.name || 'no-tag' }}.json"
             }
           ]
         }
@@ -402,7 +402,10 @@
   "settings": {
     "executionOrder": "v1",
     "binaryMode": "separate",
-    "availableInMCP": false
+    "availableInMCP": false,
+    "timeSavedMode": "fixed",
+    "timezone": "Europe/Warsaw",
+    "callerPolicy": "workflowsFromSameOwner"
   },
   "staticData": null,
   "meta": {
@@ -410,7 +413,7 @@
     "templateCredsSetupCompleted": true
   },
   "pinData": {},
-  "versionId": "5c6bbdc7-76ba-44b5-acd5-b8560f725fc6",
+  "versionId": "6f17e2cf-3db8-47ad-9daf-9bb15568cc43",
   "activeVersionId": null,
   "triggerCount": 0,
   "shared": [
