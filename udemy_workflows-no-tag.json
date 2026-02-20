@@ -1,0 +1,92 @@
+{
+  "updatedAt": "2026-02-20T16:13:02.002Z",
+  "createdAt": "2026-02-20T15:17:29.797Z",
+  "id": "P8IKpA0h6cT4MVEK",
+  "name": "Udemy_workflows",
+  "active": false,
+  "isArchived": false,
+  "nodes": [
+    {
+      "parameters": {
+        "updates": [
+          "messages"
+        ],
+        "options": {}
+      },
+      "type": "n8n-nodes-base.whatsAppTrigger",
+      "typeVersion": 1,
+      "position": [
+        0,
+        0
+      ],
+      "id": "ab9af7cf-7030-4111-a4ec-cb1e0accaca9",
+      "name": "WhatsApp Trigger",
+      "webhookId": "2b101899-0798-49eb-9265-f2ac8c9713e4",
+      "credentials": {
+        "whatsAppTriggerApi": {
+          "id": "A4dsSk8oDpRxQ5Ea",
+          "name": "WhatsApp OAuth account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "send",
+        "phoneNumberId": "1029605986897116",
+        "additionalFields": {}
+      },
+      "type": "n8n-nodes-base.whatsApp",
+      "typeVersion": 1.1,
+      "position": [
+        208,
+        0
+      ],
+      "id": "cbd40be4-d9da-4abd-8abf-955329c0a50a",
+      "name": "Send message",
+      "webhookId": "aae625b9-059e-4743-b55d-1fb6125cc8f0",
+      "credentials": {
+        "whatsAppApi": {
+          "id": "mfUOUXY6r600oz0O",
+          "name": "WhatsApp account"
+        }
+      }
+    }
+  ],
+  "connections": {
+    "WhatsApp Trigger": {
+      "main": [
+        [
+          {
+            "node": "Send message",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate",
+    "availableInMCP": false
+  },
+  "staticData": null,
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "pinData": {},
+  "versionId": "9fe73812-b96e-42c5-8c74-de37b416f035",
+  "activeVersionId": null,
+  "triggerCount": 0,
+  "shared": [
+    {
+      "updatedAt": "2026-02-20T15:17:29.797Z",
+      "createdAt": "2026-02-20T15:17:29.797Z",
+      "role": "workflow:owner",
+      "workflowId": "P8IKpA0h6cT4MVEK",
+      "projectId": "2xSsOjSrMYhcSt30"
+    }
+  ],
+  "activeVersion": null,
+  "tags": []
+}
